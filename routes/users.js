@@ -7,10 +7,11 @@
 
 const express = require('express');
 const router  = express.Router();
+// const bootstrap = require('bootstrap');
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+  router.get("/menu", (req, res) => {
+    db.query(`SELECT * FROM menu;`)
       .then(data => {
         const users = data.rows;
         res.json({ users });
