@@ -7,40 +7,42 @@ VALUES ('Alice', '6475649999'),
 ('Squarepants', '3069385766');
 
 
-INSERT INTO drinks (name, price)
+INSERT INTO restaurants (name, phone, created_at)
+VALUES ('Restaurant Name', '8349385555', '2021-01-25 9:30:20');
+
+
+INSERT INTO menu_items (restaurant_id, name, description, availability, price, food_type)
 VALUES
-('coffee', 8),
-('hot chocolate', 5),
-('iced macchiato', 8),
-('tropical green smoothie', 8),
-('freshly squeezed orange juice', 7);
+(1, 'coffee', 'description', TRUE, 8, 'drink'),
+(1, 'hot chocolate', 'description', TRUE, 5, 'drink'),
+(1, 'iced macchiato', 'description', TRUE, 8, 'drink'),
+(1, 'strawberry lemonade', 'description', TRUE, 9, 'drink'),
+(1, 'tropical green smoothie', 'description', TRUE, 8, 'drink'),
+(1, 'freshly squeezed orange juice', 'description', TRUE, 7, 'drink'),
+(1, 'cheese and broccoli soup', 'description', TRUE, 25, 'food'),
+(1, 'garden salad', 'description', TRUE, 15, 'food'),
+(1, 'fruit salad', 'description', TRUE, 15, 'food'),
+(1, 'pancakes', 'description', TRUE, 18, 'food'),
+(1, 'smoked salmon egg benedict', 'description', TRUE, 40, 'food'),
+(1, 'chocolate croissant', 'description', TRUE, 7, 'food'),
+(1, 'waffling', 'description', TRUE, 18, 'food'),
+(1, 'pasta','description', TRUE, 30, 'food'),
+(1, 'cheese croissant', 'description', TRUE, 7, 'food'),
+(1,'chocolate chip muffin', 'description', TRUE, 7, 'food');
 
 
-INSERT INTO meals (name, price)
+INSERT INTO orders (restaurant_id, customer_id, total, wait_time, order_ready)
 VALUES
-('chocolate croissant', 35),
-('garden salad', 60),
-('waffling', 18),
-('pancakes', 20),
-('smoked salmon egg benedict', 16),
-('pasta', 12),
-('cheese and broccoli soup', 7),
-('cheese croissant', 3),
-('fruit salad', 6),
-('chocolate chip muffin', 7);
+(1, 1, 50, '2021-03-24 21:14:56', false),
+(1, 2, 50, '2021-03-25 21:17:56', false),
+(1, 3, 50, '2021-04-26 21:23:56', false),
+(1, 4, 50, '2021-10-15 21:23:56', false),
+(1, 5, 50, '2021-03-21 21:10:56', false);
 
 
-INSERT INTO order_items (meal_id, drink_id)
-VALUES (1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5,5);
-
-
-INSERT INTO orders (main_id, drink_, quantity, comments, total, confirmation, wait_time, order_ready, customer_id, order_item_id)
-VALUES (2, null, 50, 4382, '2021-03-24 21:14:56', false, 1, 1),
-(1,null, 2, 'No onions', 50, 4382, '2021-03-25 21:17:56', false, 2, 2),
-(2, 'extra maple syrup', 50, 4382, '2021-04-26 21:23:56', false, 3, 3),
-(2, 'extra chocolate chips', 50, 4382, '2021-10-15 21:23:56', false, 4, 4),
-(2, 'extra salmon', 50, 4382, '2021-03-21 21:10:56', false, 5, 5);
+INSERT INTO order_items (order_id, menu_item_id, comments, quantity, item_total)
+VALUES (1, 1, 'comments', 1, 234),
+(2, 2, 'comments', 1, 234),
+(3, 3, 'comments', 1, 234),
+(4, 4, 'comments', 1, 234),
+(5, 5, 'comments', 1, 234);
