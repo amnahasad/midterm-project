@@ -46,7 +46,7 @@ console.log(root)
 app.use("/homePage", homePageRoutes(db));
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-app.use("/", root(db));
+app.use("/menu", root(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page

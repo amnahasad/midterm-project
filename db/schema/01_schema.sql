@@ -7,42 +7,44 @@ CREATE TABLE customers (
   phone VARCHAR(255) NOT NULL
 );
 
+DROP TABLE IF EXISTS restaurants CASCADE;
+CREATE TABLE restaurants (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  phone VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP
+);
 
 DROP TABLE IF EXISTS orders CASCADE;
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY NOT NULL,
-  quantity INTEGER NOT NULL DEFAULT 1,
-  comments TEXT,
-  total INTEGER NOT NULL,
-  confirmation INTEGER NOT NULL,
-  wait_time TIMESTAMP,
-  order_ready BOOLEAN,
   customer_id INTEGER REFERENCES customers(id) ON DELETE CASCADE,
-  order_item_id INTEGER REFERENCES order_items(id) ON DELETE CASCADE
+  restaurant_id INTEGER REFERENCES restaurants(id) ON DELETE CASCADE,
+  total INTEGER NOT NULL,
+  wait_time TIMESTAMP,
+  order_ready VARCHAR(255)
 );
 
-DROP TABLE IF EXISTS meals CASCADE;
-CREATE TABLE meals (
+DROP TABLE IF EXISTS menu_items CASCADE;
+CREATE TABLE menu_items (
   id SERIAL PRIMARY KEY NOT NULL,
-  main_course VARCHAR(255),
-  side_dish VARCHAR(255),
-  baked_goods VARCHAR(255),
-  house_special VARCHAR(255),
-  price INTEGER NOT NULL
+  restaurant_id INTEGER REFERENCES restaurants(id) ON DELETE CASCADE,
+  name VARCHAR(255),
+  description VARCHAR(255),
+  availability BOOLEAN DEFAULT TRUE,
+  price INTEGER NOT NULL,
+  food_type VARCHAR(255)
 );
 
-DROP TABLE IF EXISTS drinks CASCADE;
-CREATE TABLE drinks (
-  id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(255) NOT NULL,
-  price INTEGER NOT NULL
-);
 
 DROP TABLE IF EXISTS order_items CASCADE;
 CREATE TABLE order_items (
   id SERIAL PRIMARY KEY NOT NULL,
-  meal_id INTEGER REFERENCES meals(id) ON DELETE CASCADE,
-  drink_id INTEGER REFERENCES customers(id) ON DELETE CASCADE
+  order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
+  menu_item_id INTEGER REFERENCES menu_items(id) ON DELETE CASCADE,
+  comments TEXT,
+  quantity INTEGER,
+  item_total INTEGER NOT NULL
 );
 
 
