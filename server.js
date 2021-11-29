@@ -39,7 +39,7 @@ const homePageRoutes = require("./routes/homePage");
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const root = require("./routes/root");
-console.log(root)
+console.log(root);
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
