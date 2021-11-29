@@ -16,7 +16,6 @@ VALUES
 ('freshly squeezed orange juice', 7);
 
 
-
 INSERT INTO meals (main_course, side_dish, baked_goods, house_special, price)
 VALUES
 (NULL, NULL, 'chocolate croissant', 'cheese and broccoli soup', 35),
