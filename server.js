@@ -39,7 +39,9 @@ const homePageRoutes = require("./routes/homePage");
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const root = require("./routes/root");
-console.log(root)
+const menu = require("./routes/menu")
+// console.log(root)
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -47,6 +49,7 @@ app.use("/homePage", homePageRoutes(db));
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/", root(db));
+app.use("/menu", menu(db))
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -58,5 +61,5 @@ app.use("/", root(db));
 // });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`App in dev mode && listening on port ${PORT}`);
 });

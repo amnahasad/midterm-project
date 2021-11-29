@@ -17,7 +17,7 @@ VALUES
 
 
 
-INSERT INTO meals (main_course, side_dish, baked_goods, house_special, price)
+INSERT INTO meals (name, price)
 VALUES
 (NULL, NULL, 'chocolate croissant', 'cheese and broccoli soup', 35),
 (NULL, 'garden salad', 'chocolate chip muffin', NULL, 60),
