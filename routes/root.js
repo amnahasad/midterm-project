@@ -14,7 +14,14 @@ module.exports = (db) => {
     db.query(`SELECT * FROM drinks;`)
       .then(data => {
         const menu = data.rows;
-        res.json({ menu });
+        const specialItem = data.rows[1];
+        const templateVars = {
+          specialItem,
+          menu,
+          itemOfTheDay: 'pizza'
+        }
+        res.render('index', templateVars)
+        // res.json({ menu });
       })
       .catch(err => {
         res
@@ -22,5 +29,7 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
   return router;
-};
+
+}
