@@ -4,3 +4,16 @@ body,
 html {
   margin: 0;
 }
+
+// header {
+//   background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dezeen.com%2F2018%2F04%2F07%2Fle-house-angarden-cafe-planting-architecture-hanoi-vietnam%2F&psig=AOvVaw21UI52tD9SEl1nHbjoQaus&ust=1638322484659000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCODEkoT5vvQCFQAAAAAdAAAAABAb");
+// }
+#footer {
+  display: flex;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  background: #999;
+}
