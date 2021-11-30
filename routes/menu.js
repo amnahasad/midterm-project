@@ -29,26 +29,6 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
-
-    // router.get("/", (req, res) => {
-    // db.query(`SELECT name, description, price
-    // FROM menu_items
-    // WHERE availability = 'TRUE'
-    // AND food_type = 'food';`)
-    // .then(data => {
-    //   const foods = data.rows;
-    //   const templateVars = {
-    //     foods
-    //   }
-    //   res.render('menu', templateVars)
-    //   // res.json({ menu });
-    // })
-    //   .catch(err => {
-    //     res
-    //     .status(500)
-    //     .json({ error: err.message });
-    //   });
-    // // })
   });
 
   return router;
