@@ -37,16 +37,21 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const homePageRoutes = require("./routes/homePage");
 const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
+// const widgetsRoutes = require("./routes/widgets");
 const root = require("./routes/root");
-console.log(root);
+const menuRoutes = require("./routes/menu");
+const viewOrderRoutes = require("./routes/viewOrder");
+// console.log(root);
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/homePage", homePageRoutes(db));
 app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
-app.use("/menu", root(db));
+// app.use("/api/widgets", widgetsRoutes(db));
+app.use("/api/menu", menuRoutes(db));
+app.use("/menu", menuRoutes(db));
+app.use("/viewOrder", viewOrderRoutes(db));
+app.use("/", root(db))
 // Note: mount other resources here, using the same pattern above
 
 // Home page
