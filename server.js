@@ -48,6 +48,7 @@ const viewOrderRoutes = require("./routes/viewOrder");
 app.use("/homePage", homePageRoutes(db));
 app.use("/api/users", usersRoutes(db));
 // app.use("/api/widgets", widgetsRoutes(db));
+app.use("/api/menu", menuRoutes(db));
 app.use("/menu", menuRoutes(db));
 app.use("/viewOrder", viewOrderRoutes(db));
 app.use("/", root(db))
