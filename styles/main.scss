@@ -1,1 +1,70 @@
-@use 'viewOrder';
+@use "viewOrder";
+@use "layout";
+
+// body {
+//   color: #ffffff;
+//   font: "Ubuntu", "Arial", "Helvetica", sans-serif;
+//   font-size: xx-large;
+//   padding: 2rem;
+// }
+// nav {
+//   color: red;
+// }
+header {
+  object-fit: contain;
+  height: fit-content;
+  // background-image: url("https://images.squarespace-cdn.com/content/v1/57058af18a65e2f19709cb0d/1563213413140-EL3AET8HJ4J4I8MBXF22/An%27garden++Le+house+Pendulum+Magazine");
+  width: 100%;
+  padding-bottom: 40px;
+  // background-color: forestgreen;
+}
+
+img {
+  // max-width: 1500px, 100vw, 1500px;
+  // max-width: 100% !important;
+  max-height: 400px;
+  width: 100%;
+  display: block !important;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  // position: relative !important;
+}
+footer {
+  margin-top: 5em;
+  background-color: rgb(26, 29, 29);
+}
+
+// TESTING CART BUTTON
+
+.container {
+  padding: 2rem 0rem;
+}
+
+.table-image {
+  thead {
+    td,
+    th {
+      border: 0;
+      color: #666;
+      font-size: 0.8rem;
+    }
+  }
+
+  td,
+  th {
+    vertical-align: middle;
+    text-align: center;
+
+    &.qty {
+      max-width: 2rem;
+    }
+  }
+}
+
+.price {
+  margin-left: 1rem;
+}
+
+.modal-footer {
+  padding-top: 0rem;
+}

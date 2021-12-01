@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home Page</title>
-
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/routes/homePage.js"></script>
-  </head>
-
+<%- include('partials/_nav') %>
   <body>
-    <h1>Have fun! 🥔</h1>
-    Item of the day! <%= itemOfTheDay %> <% for (const item of menu) { %> <%=item.name %> <%= item.price %> <% } %>
-    <h2><%= specialItem.name %></h2>
+    <header class="banner" id="banner">
+      <!-- <div></div> -->
+      <img
+        src="https://i.pinimg.com/originals/22/05/a1/2205a138a839c5b6c60590855ee4a396.jpg"
+      />
+    </header>
   </body>
+  <footer id="footer">
+    <div class="container px-5">
+      <p class="m-0 text-center text-white small">Copyright © Garden Café</p>
+      <p class="m-0 text-center text-white small">P: 834-938-5555</p>
+      <p class="m-0 text-center text-white small">25 Lighthouse Ave</p>
+      <P class="m-0 text-center text-white small">Toronto, Ontario X6A 6G7</P>
+    </div>
+  </footer>
 </html>
