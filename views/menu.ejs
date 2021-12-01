@@ -46,35 +46,12 @@
   </header>
   <body>
     <h2>MENU</h2>
-    <label class="drinks">
-      <div>Drinks <% for (const drink of drinks) { %></div>
+    <label class="menu-container">
 
-      <div id="drink" data="<%=drink.name%>"><%=drink.name %> <%= drink.description %> <%= drink.price %>
-      <button id="drinks-button" style="
-      background-color: #E887BB;
-      color: #FFFFFF;
-      border: transparent;
-      padding-top: 3px;
-      padding-bottom: 3px;
-      font-size: small;"
-      type="submit">Add item</button>
-    </div>
-      <% } %>
+
     </label>
   </br>
-    <label class="brunchMenu">
-    <div>Brunch Menu <% for (const food of foods) { %></div>
 
-    <div id="brunchMenu"><%=food.name %> <%= food.description %> <%= food.price %><button style="
-      background-color: #E887BB;
-      color: #FFFFFF;
-      border: transparent;
-      padding-top: 3px;
-      padding-bottom: 3px;
-      font-size: small;"
-      type="submit">Add item</button></div>
-    <% } %>
-  </label>
   </body>
   <footer id="footer" class="py-5 bg-black">
     <div class="container px-5">
