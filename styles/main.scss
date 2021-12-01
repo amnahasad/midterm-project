@@ -2,10 +2,10 @@
 @use "layout";
 
 // body {
-//   color: #ffffff;
-//   font: "Ubuntu", "Arial", "Helvetica", sans-serif;
-//   font-size: xx-large;
-//   padding: 2rem;
+//   // color: #ffffff;
+//   // font: "Ubuntu", "Arial", "Helvetica", sans-serif;
+//   // font-size: xx-large;
+//   // padding: 2rem;
 // }
 // nav {
 //   color: red;
@@ -34,37 +34,118 @@ footer {
   background-color: rgb(26, 29, 29);
 }
 
+.table {
+  padding: 2rem;
+  margin-left: 10px;
+}
+.menuButton {
+  background-color: #3b4f40;
+  color: #ffffff;
+  border: transparent;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: small;
+}
+
 // TESTING CART BUTTON
-
-.container {
-  padding: 2rem 0rem;
+.cart-header {
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #333;
 }
 
-.table-image {
-  thead {
-    td,
-    th {
-      border: 0;
-      color: #666;
-      font-size: 0.8rem;
-    }
-  }
-
-  td,
-  th {
-    vertical-align: middle;
-    text-align: center;
-
-    &.qty {
-      max-width: 2rem;
-    }
-  }
+.cart-column {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  margin-right: 1.5em;
+  padding-bottom: 10px;
+  margin-top: 10px;
 }
 
-.price {
-  margin-left: 1rem;
+.cart-row {
+  display: flex;
 }
 
-.modal-footer {
-  padding-top: 0rem;
+.cart-item {
+  width: 45%;
+}
+
+.cart-price {
+  width: 20%;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.cart-quantity {
+  width: 35%;
+}
+
+.cart-item-title {
+  color: #333;
+  margin-left: 0.5em;
+  font-size: 1.2em;
+}
+
+.cart-item-image {
+  width: 75px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.btn-danger {
+  color: white;
+  background-color: #eb5757;
+  border: none;
+  border-radius: 0.3em;
+  font-weight: bold;
+}
+
+.btn-danger:hover {
+  background-color: #cc4c4c;
+}
+
+.cart-quantity-input {
+  height: 34px;
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid #56ccf2;
+  background-color: #eee;
+  color: #333;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2em;
+  margin-right: 25px;
+}
+
+.cart-row:last-child {
+  border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+  border: none;
+}
+
+.cart-total {
+  text-align: end;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.cart-total-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: black;
+  margin-right: 20px;
+}
+
+.cart-total-price {
+  color: #333;
+  font-size: 1.1em;
+}
+
+.btn-purchase {
+  display: block;
+  margin: 40px auto 80px auto;
+  font-size: 1.75em;
 }

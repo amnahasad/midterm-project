@@ -1,8 +1,9 @@
 <%- include('partials/_nav') %>
-<script src="/scripts/add-to-cart.js"></script>
-<script type="text/javascript" src="../routes/menu.js"></script>
-<!-- TESTING ADD TO CART FUNCTIONAILTY  -->
-<!-- ADD TO CART SCRIPT ^^^^ -->
+  <script src="/scripts/app.js"></script>
+  <script type="text/javascript" src="../routes/menu.js"></script>
+  <!-- TESTING ADD TO CART FUNCTIONAILTY  -->
+  <!-- ADD TO CART SCRIPT ^^^^ -->
+
   <body>
     <header class="banner" id="banner">
       <!-- <div></div> -->
@@ -25,121 +26,165 @@
         </tr>
       </thead>
       <tbody>
-      <% for (const drink of drinks) { %>
-        <tr>
-          <form action='/menu/drinks/<%=drink.name%>' method="POST">
+        <% for (const drink of drinks) { %>
+          <tr>
 
-              <div id="drink" data="<%=drink.name%>">
-                <td><%=drink.name %></td>
-                <td><%= drink.description %></td>
-                <td>$<%= drink.price %></td>
-                <td>
-                 <button class="menuButton" id="drinks-button" style="
-              background-color: #3b4f40;
-              color: #FFFFFF;
-              border: transparent;
-              padding-top: 3px;
-              padding-bottom: 3px;
-              font-size: small;"
-              type="submit">Add to Cart</button>
-            </td>
+            <!-- <form action='/menu/drinks/<%=drink.name%>' method="POST"> -->
+
+            <div class="drink" data="<%=drink.name%>">
+              <td>
+                <%=drink.name %>
+              </td>
+              <td>
+                <%= drink.description %>
+              </td>
+              <td>$<%= drink.price %>
+              </td>
+              <td>
+                <button class="menuButton" id="drinks-button" type="submit">Add to Cart</button>
+              </td>
             </div>
-
-
-          </form>
-        </tr>
-        <% } %>
+            <!-- </form> -->
+          </tr>
+          <% } %>
       </tbody>
     </table>
-  </br>
-  <!-- ADDED SECOND TABLE FOR FOOD -->
-  <table class="table">
-    <thead>
-      <style>
-        /* h3 {text-align: center;} */
-        /* h5 {text-align: center;} */
-      </style>
-      <tr>
-        <th scope="col">Food</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- <label class="brunchMenu"> -->
+
+    </br>
+    <!-- ADDED SECOND TABLE FOR FOOD -->
+    <table class="table">
+      <thead>
+        <style>
+          /* h3 {text-align: center;} */
+          /* h5 {text-align: center;} */
+        </style>
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+        <!-- <label class="brunchMenu"> -->
         <!-- Brunch Menu -->
         <% for (const food of foods) { %>
           <tr>
-            <form action='/menu/food/<%=food.name%>' method="POST">
-                <div id="drink" data="<%=food.name%>">
-                  <td><%=food.name %></td>
-                  <td><%= food.description %></td>
-                  <td>$<%= food.price %></td>
-                  <td>
-                   <button class="menuButton" id="foods-button" style="
-                background-color: #3b4f40;
-                color: #FFFFFF;
-                border: transparent;
-                padding-top: 3px;
-                padding-bottom: 3px;
-                font-size: small;"
-                type="submit">Add to Cart</button>
+            <!-- <form action='/menu/food/<%=food.name%>' method="POST"> -->
+            <div id="drink" data="<%=food.name%>">
+              <td>
+                <%=food.name %>
               </td>
-              </div>
-              </form>
+              <td>
+                <%= food.description %>
+              </td>
+              <td>$<%= food.price %>
+              </td>
+              <td>
+                <button class="menuButton" id="foods-button" type="submit">Add to Cart</button>
+              </td>
+            </div>
+            <!-- </form> -->
           </tr>
-      <% } %>
-    </tbody>
-  </table>
+          <% } %>
+      </tbody>
+    </table>
 
 
-  <!-- TESTING CART FUNCTIONALITY  -->
-  <section class="container content-section">
-    <h2 class="section-header">CART</h2>
-    <div class="cart-row">
+
+    <!-- TESTING CART FUNCTIONALITY  -->
+    <!-- <section id="drinkListContainer">
+
+            <article>
+              <h2 class="section-header">CART</h2>
+              <div class="cart-row">
+
+                <span class="cart-item cart-header cart-column"><%=drinks[0].name%></span>
+                <span class="cart-price cart-header cart-column"><%= drinks[0].price %></span>
+
+              </div>
+              <div class="cart-items">
+                <div class="cart-row">
+                  <div class="cart-item cart-column">
+
+                    <span class="cart-item-title"></span>
+                  </div>
+                  <span class="cart-price cart-column"></span>
+                  <div class="cart-quantity cart-column">
+                    <input class="cart-quantity-input" type="number" value="1">
+                    <button class="btn btn-danger" type="button">REMOVE</button>
+                  </div>
+                </div>
+              </article>
+
+              <div class="cart-row">
+                <div class="cart-item cart-column">
+
+                  <span class="cart-item-title"></span>
+                </div>
+                <span class="cart-price cart-column"></span>
+                <div class="cart-quantity cart-column">
+                  <input class="cart-quantity-input" type="number" value="2">
+                  <button class="btn btn-danger" type="button">REMOVE</button>
+                </div>
+              </div>
+            </div>
+            <div class="cart-total">
+              <strong class="cart-total-title">Total</strong>
+              <span class="cart-total-price"></span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+          </section> -->
+    <!-- TESTING ANOTHER CART  -->
+    <section class="container content-section">
+      <h2 class="section-header">CART</h2>
+      <div class="cart-row">
         <span class="cart-item cart-header cart-column">ITEM</span>
         <span class="cart-price cart-header cart-column">PRICE</span>
         <span class="cart-quantity cart-header cart-column">QUANTITY</span>
-    </div>
-    <div class="cart-items">
+      </div>
+      <div class="cart-items">
         <div class="cart-row">
-            <div class="cart-item cart-column">
-                <img class="cart-item-image" src="" width="100" height="100">
-                <span class="cart-item-title"></span>
-            </div>
-            <span class="cart-price cart-column"></span>
-            <div class="cart-quantity cart-column">
-                <input class="cart-quantity-input" type="number" value="1">
-                <button class="btn btn-danger" type="button">REMOVE</button>
-            </div>
+          <div class="cart-item cart-column">
+            <img class="cart-item-image" src="Images/Shirt.png" width="100" height="100">
+            <span class="cart-item-title">T-Shirt</span>
+          </div>
+          <span class="cart-price cart-column">$19.99</span>
+          <div class="cart-quantity cart-column">
+            <input class="cart-quantity-input" type="number" value="1">
+            <button class="btn btn-danger" type="button">REMOVE</button>
+          </div>
         </div>
         <div class="cart-row">
-            <div class="cart-item cart-column">
-                <img class="cart-item-image" src="" width="100" height="100">
-                <span class="cart-item-title"></span>
-            </div>
-            <span class="cart-price cart-column"></span>
-            <div class="cart-quantity cart-column">
-                <input class="cart-quantity-input" type="number" value="2">
-                <button class="btn btn-danger" type="button">REMOVE</button>
-            </div>
+          <div class="cart-item cart-column">
+            <img class="cart-item-image" src="Images/Album 3.png" width="100" height="100">
+            <span class="cart-item-title">Album 3</span>
+          </div>
+          <span class="cart-price cart-column">$9.99</span>
+          <div class="cart-quantity cart-column">
+            <input class="cart-quantity-input" type="number" value="2">
+            <button class="btn btn-danger" type="button">REMOVE</button>
+          </div>
         </div>
-    </div>
-    <div class="cart-total">
+      </div>
+      <div class="cart-total">
         <strong class="cart-total-title">Total</strong>
-        <span class="cart-total-price"></span>
-    </div>
-    <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
-</section>
+        <span class="cart-total-price">$39.97</span>
+      </div>
+      <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+    </section>
 
-  <footer id="footer" >
-    <div class="container px-5">
-      <p class="m-0 text-center text-white small">Copyright © Garden Café</p>
-      <p class="m-0 text-center text-white small">P: 834-938-5555</p>
-      <p class="m-0 text-center text-white small">25 Lighthouse Ave</p>
-      <P class="m-0 text-center text-white small">Toronto, Ontario X6A 6G7</P>
-    </div>
-  </footer>
-</body>
-</html>
+    <footer id="footer">
+      <div class="container px-5">
+        <p class="m-0 text-center text-white small">Copyright © Garden Café</p>
+        <p class="m-0 text-center text-white small">P: 834-938-5555</p>
+        <p class="m-0 text-center text-white small">25 Lighthouse Ave</p>
+        <P class="m-0 text-center text-white small">Toronto, Ontario X6A 6G7</P>
+      </div>
+    </footer>
+  </body>
+  <script src="/scripts/add-to-cart.js"></script>
+
+  </html>

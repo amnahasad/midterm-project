@@ -10,12 +10,13 @@ module.exports = (db) => {
     AND food_type = 'drink';`)
       .then(data => {
         const drinks = data.rows;
+        console.log(drinks)
         db.query(`SELECT name, description, price
         FROM menu_items
         WHERE availability = 'TRUE'
         AND food_type = 'food';`)
           .then(menuData => {
-            console.log(menuData)
+            // console.log(menuData)
             const foods = menuData.rows;
             const templateVars = {
               drinks,
