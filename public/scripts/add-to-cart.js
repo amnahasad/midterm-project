@@ -14,40 +14,84 @@ $(() => {
   $('.btn-danger').on('click', function () {
     console.log('danger button');
   });
+});
 
-  // 'context'
-  // will be called on any button with the class btn-danger
-  $(document).on('click', '.btn-danger', function (event) {
-    let removeButton = event.target;
-    removeButton.parentElement.parentElement.remove();
-    console.log('click on the document');
-  });
+// 'context'
+// will be called on any button with the class btn-danger
+$(document).on('click', '.btn-danger', function (event) {
+  let removeButton = event.target;
+  let attribute = removeButton.getAttribute('data-id');
+  let addToCartBttnID = "drinks-button-" + attribute;
+  let addToCartBttn = document.getElementById(addToCartBttnID);
+  removeButton.parentElement.parentElement.remove();
+  console.log("data-id ---> ", attribute);
+  $(addToCartBttn).prop("disabled", false);
+  updateTotal();
+  console.log('click on the document');
+});
+
+$(document).on('input', '.cart-quantity-input', function (event) {
+
+  updateTotal();
+  console.log('click on the document');
+});
+
+// (function ( $ ){
+//   $.fn.updateTotal = function () {
+
+//   }
+// })( jQuery );
+
+// const $updateTotal = function (){
+//   const total = $(this).parent().find(".cart-total-price");
+
+// }
+
+const updateTotal = function () {
+  let fullCart = document.getElementsByClassName('cart-items')[0];
+  let item = fullCart.getElementsByClassName('cart-row');
+  let total = 0;
+  let finalTotal = document.getElementById('total-price');
+
+  for (let i = 0; i < item.length; i++) {
+    let priceBox = item[i].getElementsByClassName('cart-price')[0];
+    let qty = item[i].getElementsByClassName('cart-quantity-input')[0];
+    let qtyVal = qty.value;
+    let priceVal = priceBox.innerText;
+
+    if (qtyVal > 0) {
+      total += qtyVal * priceVal;
+    }
+
+    // console.log(priceBox, qty)
+    // let totalPrice = parseFloat(priceBox)
+    //might need to parse the price .... not sure example: where price = innerText (outerText)
+  }
+  finalTotal.innerText = total;
+  return finalTotal;
+};
+updateTotal();
+// $("#tweet-text").on("input", function (event) {
+//   const charNum = $(this).val().length;
+//   const charLeft = 140 - charNum;
+//   const counter = $(this).parent().find('.counter');
+
+//   counter.val(charLeft);
+
+//   if (charLeft < 0) {
+//     counter.css("color", "red");
+//   } else {
+//     counter.css("color", "black");
+
+//   }
+
+// });
+// class="cart-total-price"
+//total = 0;
+// Determine total in cart: 0.00
+// add item to cart --> update total
+// increase/decrease quantity --> update total
+// remove item from cart --> update total
 
 
-
-});;
-
-
-// $(document).ready(function ($) {
-
-//   let $addToCartButton = $('.menuButton')
-//   // console.log($addToCartButton)
-
-//   // for (let i = 0; i < addToCartButton.length; i++) {
-//   //   const addButton = addToCartButton[i];
-//   $addToCartButton.on('click', () => {
-//     console.log('clicked')
-//   })
-
-// })
-
-
-
-
-/*
-append item to cart,
-unbind remove,
-bind remove button + new remove button,
-
-*/
 

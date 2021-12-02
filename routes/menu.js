@@ -4,14 +4,14 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT name, description, price
+    db.query(`SELECT id, name, description, price
     FROM menu_items
     WHERE availability = 'TRUE'
     AND food_type = 'drink';`)
       .then(data => {
         const drinks = data.rows;
         console.log(drinks)
-        db.query(`SELECT name, description, price
+        db.query(`SELECT id, name, description, price
         FROM menu_items
         WHERE availability = 'TRUE'
         AND food_type = 'food';`)
