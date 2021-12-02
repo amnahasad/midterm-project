@@ -2,12 +2,29 @@ console.log('here____________>')
 let removeCartItemButton = document.getElementsByClassName('btn btn-danger')
 // console.log(removeCartItemButton)
 
-for (let i = 0; i < removeCartItemButton.length; i++) {
-  const removeButton = removeCartItemButton[i];
-  removeButton.addEventListener('click', () => {
-    console.log('clicked')
+// for (let i = 0; i < removeCartItemButton.length; i++) {
+//   const removeButton = removeCartItemButton[i];
+//   removeButton.addEventListener('click', () => {
+//     console.log('clicked')
+//   })
+// }
+
+$( () => {
+  // This will be called only on the two pre-existing buttons
+  $('.btn-danger').on('click', function() {
+    console.log('danger button')
+  });
+
+  // 'context'
+  // will be called on any button with the class btn-danger
+  $(document).on('click', '.btn-danger', function() {
+    console.log('click on the document')
   })
-}
+
+
+
+})
+
 
 // $(document).ready(function ($) {
 
