@@ -73,7 +73,7 @@
         <% for (const food of foods) { %>
           <tr>
             <!-- <form action='/menu/food/<%=food.name%>' method="POST"> -->
-            <div id="drink" data="<%=food.name%>">
+              <div class="food" >
               <td>
                 <%=food.name %>
               </td>
@@ -84,7 +84,7 @@
                 <%= food.price %>
               </td>
               <td>
-                <button class="menuButton" id="foods-button" type="submit">Add to Cart</button>
+                <button data-id="<%=food.id%>" class="menuButton" id="drinks-button-<%=food.id%>" type="submit">Add to Cart</button>
               </td>
             </div>
             <!-- </form> -->
