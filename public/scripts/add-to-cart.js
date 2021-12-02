@@ -16,7 +16,7 @@ $(() => {
   });
 });
 
-// 'context'
+
 // will be called on any button with the class btn-danger
 $(document).on('click', '.btn-danger', function (event) {
   let removeButton = event.target;
@@ -36,16 +36,6 @@ $(document).on('input', '.cart-quantity-input', function (event) {
   console.log('click on the document');
 });
 
-// (function ( $ ){
-//   $.fn.updateTotal = function () {
-
-//   }
-// })( jQuery );
-
-// const $updateTotal = function (){
-//   const total = $(this).parent().find(".cart-total-price");
-
-// }
 
 const updateTotal = function () {
   let fullCart = document.getElementsByClassName('cart-items')[0];
@@ -63,35 +53,11 @@ const updateTotal = function () {
       total += qtyVal * priceVal;
     }
 
-    // console.log(priceBox, qty)
-    // let totalPrice = parseFloat(priceBox)
-    //might need to parse the price .... not sure example: where price = innerText (outerText)
+
   }
   finalTotal.innerText = total;
   return finalTotal;
 };
 updateTotal();
-// $("#tweet-text").on("input", function (event) {
-//   const charNum = $(this).val().length;
-//   const charLeft = 140 - charNum;
-//   const counter = $(this).parent().find('.counter');
-
-//   counter.val(charLeft);
-
-//   if (charLeft < 0) {
-//     counter.css("color", "red");
-//   } else {
-//     counter.css("color", "black");
-
-//   }
-
-// });
-// class="cart-total-price"
-//total = 0;
-// Determine total in cart: 0.00
-// add item to cart --> update total
-// increase/decrease quantity --> update total
-// remove item from cart --> update total
-
 
 

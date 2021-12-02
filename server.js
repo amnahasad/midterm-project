@@ -51,16 +51,35 @@ app.use("/api/users", usersRoutes(db));
 // app.use("/api/menu", menuRoutes(db));
 app.use("/menu", menuRoutes(db));
 app.use("/viewOrder", viewOrderRoutes(db));
-app.use("/", root(db))
+app.use("/", root(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-// app.get("/", (req, res) => {
-// res.render("index");
-// });
+
+
+//--- Below is Twilio API
+
+app.get("/sendSMS", (req, res) => {
+  const accountSid = 'AC03c42d9f66b64bb62640869a13a2ad75'; // Your Account SID from www.twilio.com/console
+  const authToken = '6e24a1900aa7bf355b8c5e5a6dd83c72'; //process.env.TWILIO_AUTH_TOKEN //  Your Auth Token from www.twilio.com/console
+
+  const twilio = require('twilio');
+  const client = new twilio(accountSid, authToken);
+
+  client.messages
+    .create({
+      body: 'Thank you for your order and choosing Garden Café',
+      to: '+16476486167', // Text this number
+      from: '+12264074073', // From a valid Twilio number
+    })
+    .then(() =>
+
+    res.redirect('/'));
+
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
