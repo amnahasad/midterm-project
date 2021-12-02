@@ -1,5 +1,5 @@
-console.log('here____________>')
-let removeCartItemButton = document.getElementsByClassName('btn btn-danger')
+console.log('here____________>');
+let removeCartItemButton = document.getElementsByClassName('btn btn-danger');
 // console.log(removeCartItemButton)
 
 // for (let i = 0; i < removeCartItemButton.length; i++) {
@@ -9,21 +9,23 @@ let removeCartItemButton = document.getElementsByClassName('btn btn-danger')
 //   })
 // }
 
-$( () => {
+$(() => {
   // This will be called only on the two pre-existing buttons
-  $('.btn-danger').on('click', function() {
-    console.log('danger button')
+  $('.btn-danger').on('click', function () {
+    console.log('danger button');
   });
 
   // 'context'
   // will be called on any button with the class btn-danger
-  $(document).on('click', '.btn-danger', function() {
-    console.log('click on the document')
-  })
+  $(document).on('click', '.btn-danger', function (event) {
+    let removeButton = event.target;
+    removeButton.parentElement.parentElement.remove();
+    console.log('click on the document');
+  });
 
 
 
-})
+});;
 
 
 // $(document).ready(function ($) {
