@@ -16,15 +16,11 @@
       <!-- <div></div> -->
       <img src="https://i.pinimg.com/originals/22/05/a1/2205a138a839c5b6c60590855ee4a396.jpg">
     </header>
-    <h2>MENU</h2>
+    <h2 id="menu">MENU</h2>
     <div> </div>
     <!-- ADDED TABLE -->
     <table class="table">
       <thead>
-        <style>
-          /* h3 {text-align: center;} */
-          /* h5 {text-align: center;} */
-        </style>
         <tr>
           <th scope="col">Beverages</th>
           <th scope="col"></th>
@@ -35,9 +31,6 @@
       <tbody>
         <% for (const drink of drinks) { %>
           <tr>
-
-            <!-- <form action='/menu/drinks/<%=drink.name%>' method="POST"> -->
-
             <div class="drink">
               <td>
                 <%=drink.name %>
@@ -53,7 +46,6 @@
                   Cart</button>
               </td>
             </div>
-            <!-- </form> -->
           </tr>
           <% } %>
       </tbody>
@@ -200,7 +192,7 @@
                 <h5 class="modal-title" id="exampleModalCenterTitle">Order Summary</h5>
               </div>
               <div class="modal-body">
-                <h5>☕️🍃 Thank you for ordering at Garden Café! Here is your order summary:
+                <h5>☕️ Thank you for ordering at Lounge Café. Here is your order summary:
                 </h5>
 
 
@@ -225,7 +217,7 @@
                   </table>
 
                 <h5>
-                  You'll also receive an SMS with this information. ☕️🍃
+                  You'll also receive an SMS with this information. ☕️
                 </h5>
               </div>
               <div class="modal-footer">
@@ -237,16 +229,16 @@
         </div>
       </form>
     </section>
-
-    <footer id="footer">
-      <div class="container px-5">
-        <p class="m-0 text-center text-white small">Copyright © Garden Café</p>
-        <p class="m-0 text-center text-white small">P: 834-938-5555</p>
-        <p class="m-0 text-center text-white small">25 Lighthouse Ave</p>
-        <P class="m-0 text-center text-white small">Toronto, Ontario X6A 6G7</P>
-      </div>
-    </footer>
   </body>
+
+  <footer id="footer">
+    <div class="container px-5">
+      <p class="m-0 text-center text-white small">Copyright © Lounge Café.</p>
+      <p class="m-0 text-center text-white small">P: 834-938-5555</p>
+      <p class="m-0 text-center text-white small">25 Lighthouse Ave</p>
+      <P class="m-0 text-center text-white small">Toronto, Ontario X6A 6G7</P>
+    </div>
+  </footer>
   <script src="/scripts/add-to-cart.js"></script>
 
   </html>

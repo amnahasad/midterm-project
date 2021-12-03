@@ -58,29 +58,46 @@ app.use("/", root(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-
-
 //--- Below is Twilio API
 
-app.get("/sendSMS", (req, res) => {
-  const accountSid = 'AC03c42d9f66b64bb62640869a13a2ad75'; // Your Account SID from www.twilio.com/console
-  const authToken = '6e24a1900aa7bf355b8c5e5a6dd83c72'; //process.env.TWILIO_AUTH_TOKEN //  Your Auth Token from www.twilio.com/console
+// app.get("/sendSMS", (req, res) => {
+//   const twilio = require("twilio");
+//   const accountSid = 'AC18eefeb1ea22d4bc200e8f55eb85c5f8';
+//   // process.env.TWILIO_ACCOUNT_SID;
+//   const authToken = 'c302b82e5d3d9b38804a48aef8c93e4a';
+//   // process.env.TWILIO_AUTH_TOKEN;
 
-  const twilio = require('twilio');
-  const client = new twilio(accountSid, authToken);
+//   const client = new twilio(accountSid, authToken);
 
-  client.messages
-    .create({
-      body: 'Thank you for your order and choosing Garden Café',
-      to: '+16476486167', // Text this number
-      from: '+12264074073', // From a valid Twilio number
-    })
-    .then(() =>
+//   client.messages
+//     .create({
+//       body: "Thank you for your order and choosing Garden Café",
+//       to: "+16476486167", // Text this number
+//       from: "+12264074073" // From a valid Twilio number
+//     })
 
-    res.redirect('/'));
+let twilio = function () {
+  app.get("/sendSMS", (req, res) => {
+    const accountSid = process.env.TWILIO_ACCOUNT_SID;
 
-});
+    const authToken = process.env.TWILIO_AUTH_TOKEN;
+    const twilio = require('twilio');
+    const client = new twilio(accountSid, authToken);
+    client.messages
+      .create({
+        body: 'Thank you for your order and choosing Garden Café. Your order will be ready in 20 minutes.',
+        to: process.env.PHONE_NUMBER, // Text this number
+        from: '+12267733762', // From a valid Twilio number
+      })
+      .then(() => {
+        res.redirect('/')
+        console.log(message.sid)
+      });
+  })
+}
+
+
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Garden Café app listening on port ${PORT}`);
 });

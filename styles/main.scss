@@ -1,37 +1,65 @@
 @use "viewOrder";
 @use "layout";
 
-// body {
-//   // color: #ffffff;
-//   // font: "Ubuntu", "Arial", "Helvetica", sans-serif;
-//   // font-size: xx-large;
-//   // padding: 2rem;
-// }
-// nav {
-//   color: red;
-// }
+#welcome {
+  margin-top: 140px;
+  display: flex;
+  font-size: 150px;
+
+  align-items: center;
+  justify-content: center;
+  margin-left: 350px;
+  color: rgb(21, 13, 5);
+  font-weight: 400;
+  font-family: cursive;
+}
+
+#homePageBody {
+  align-items: center;
+  background-image: url("https://img1.10bestmedia.com/Images/Photos/383956/GettyImages-1182494280_54_990x660.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 header {
-  object-fit: contain;
   height: fit-content;
-  // background-image: url("https://images.squarespace-cdn.com/content/v1/57058af18a65e2f19709cb0d/1563213413140-EL3AET8HJ4J4I8MBXF22/An%27garden++Le+house+Pendulum+Magazine");
   width: 100%;
   padding-bottom: 40px;
-  // background-color: forestgreen;
 }
 
 img {
-  // max-width: 1500px, 100vw, 1500px;
-  // max-width: 100% !important;
   max-height: 400px;
   width: 100%;
   display: block !important;
   background-repeat: no-repeat;
   background-size: 100%;
-  // position: relative !important;
+}
+
+#footer1 {
+  margin-top: 60em;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#menu {
+  display: flex;
+  justify-content: center;
+  color: rgb(21, 13, 5);
+}
+.content-section {
+  margin-top: 10em;
+}
+
+.navbar-expand-lg {
+  padding: 1em;
+  background-color: rgb(21, 13, 5);
 }
 footer {
-  margin-top: 5em;
-  background-color: rgb(26, 29, 29);
+  margin-top: 30em;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+
+  background-color: rgb(21, 13, 5);
 }
 
 .table {
@@ -39,7 +67,7 @@ footer {
   margin-left: 10px;
 }
 .menuButton {
-  background-color: #3b4f40;
+  background-color: rgb(21, 13, 5);
   color: #ffffff;
   border: transparent;
   padding-top: 3px;
@@ -47,7 +75,6 @@ footer {
   font-size: small;
 }
 
-// TESTING CART BUTTON
 .cart-header {
   font-weight: bold;
   font-size: 1.25em;

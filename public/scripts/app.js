@@ -123,6 +123,11 @@ $(document).ready(function () {
     }
     $('#modal-items').prepend(createSummaryElement(cartItems), htmlTotalPrice, createContactInfoElement(contactInfo));
 
+    twillio()
+    // $.ajax("/sendSMS", {
+
+
+    // })
 
 
     // console.log($('#lastName').val())
