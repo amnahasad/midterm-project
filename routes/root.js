@@ -21,7 +21,6 @@ module.exports = (db) => {
           itemOfTheDay: 'pizza'
         }
         res.render('index', templateVars)
-        // res.json({ menu });
       })
       .catch(err => {
         res
@@ -33,26 +32,4 @@ module.exports = (db) => {
   return router;
 
 }
-// module.exports = (db) => {
-//   router.get("/", (req, res) => {
-//     db.query(`SELECT * FROM meals;`)
-//       .then(data => {
-//         const menu = data.rows;
-//         const specialItem = data.rows[1];
-//         const templateVars = {
-//           specialItem,
-//           menu,
-//         }
-//         res.render('index', templateVars)
-//         // res.json({ menu });
-//       })
-//       .catch(err => {
-//         res
-//           .status(500)
-//           .json({ error: err.message });
-//       });
-//   });
 
-//   return router;
-
-// }

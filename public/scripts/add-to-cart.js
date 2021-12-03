@@ -1,23 +1,13 @@
 console.log('here____________>');
 let removeCartItemButton = document.getElementsByClassName('btn btn-danger');
-// console.log(removeCartItemButton)
-
-// for (let i = 0; i < removeCartItemButton.length; i++) {
-//   const removeButton = removeCartItemButton[i];
-//   removeButton.addEventListener('click', () => {
-//     console.log('clicked')
-//   })
-// }
 
 $(() => {
-  // This will be called only on the two pre-existing buttons
   $('.btn-danger').on('click', function () {
     console.log('danger button');
   });
 });
 
 
-// will be called on any button with the class btn-danger
 $(document).on('click', '.btn-danger', function (event) {
   let removeButton = event.target;
   let attribute = removeButton.getAttribute('data-id');
@@ -27,13 +17,13 @@ $(document).on('click', '.btn-danger', function (event) {
   console.log("data-id ---> ", attribute);
   $(addToCartBttn).prop("disabled", false);
   updateTotal();
-  // console.log('click on the document');
+
 });
 
 $(document).on('input', '.cart-quantity-input', function (event) {
 
   updateTotal();
-  // console.log('click on the document');
+
 });
 
 

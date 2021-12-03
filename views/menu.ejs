@@ -1,8 +1,6 @@
 <%- include('partials/_nav') %>
   <script src="/scripts/app.js"></script>
   <script type="text/javascript" src="../routes/menu.js"></script>
-  <!-- TESTING ADD TO CART FUNCTIONAILTY  -->
-  <!-- ADD TO CART SCRIPT ^^^^ -->
 
   <body>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
@@ -13,12 +11,11 @@
       crossorigin="anonymous"></script>
 
     <header class="banner" id="banner">
-      <!-- <div></div> -->
       <img src="https://i.pinimg.com/originals/22/05/a1/2205a138a839c5b6c60590855ee4a396.jpg">
     </header>
     <h2 id="menu">MENU</h2>
     <div> </div>
-    <!-- ADDED TABLE -->
+
     <table class="table">
       <thead>
         <tr>
@@ -50,15 +47,9 @@
           <% } %>
       </tbody>
     </table>
-
     </br>
-    <!-- ADDED SECOND TABLE FOR FOOD -->
     <table class="table">
       <thead>
-        <style>
-          /* h3 {text-align: center;} */
-          /* h5 {text-align: center;} */
-        </style>
         <tr>
           <th scope="col">Food</th>
           <th scope="col"></th>
@@ -67,13 +58,8 @@
         </tr>
       </thead>
       <tbody>
-
-
-        <!-- <label class="brunchMenu"> -->
-        <!-- Brunch Menu -->
         <% for (const food of foods) { %>
           <tr>
-            <!-- <form action='/menu/food/<%=food.name%>' method="POST"> -->
             <div class="food">
               <td>
                 <%=food.name %>
@@ -89,58 +75,10 @@
                   Cart</button>
               </td>
             </div>
-            <!-- </form> -->
           </tr>
           <% } %>
       </tbody>
     </table>
-
-
-
-    <!-- TESTING CART FUNCTIONALITY  -->
-    <!-- <section id="drinkListContainer">
-
-            <article>
-              <h2 class="section-header">CART</h2>
-              <div class="cart-row">
-
-                <span class="cart-item cart-header cart-column"><%=drinks[0].name%></span>
-                <span class="cart-price cart-header cart-column"><%= drinks[0].price %></span>
-
-              </div>
-              <div class="cart-items">
-                <div class="cart-row">
-                  <div class="cart-item cart-column">
-
-                    <span class="cart-item-title"></span>
-                  </div>
-                  <span class="cart-price cart-column"></span>
-                  <div class="cart-quantity cart-column">
-                    <input class="cart-quantity-input" type="number" value="1">
-                    <button class="btn btn-danger" type="button">REMOVE</button>
-                  </div>
-                </div>
-              </article>
-
-              <div class="cart-row">
-                <div class="cart-item cart-column">
-
-                  <span class="cart-item-title"></span>
-                </div>
-                <span class="cart-price cart-column"></span>
-                <div class="cart-quantity cart-column">
-                  <input class="cart-quantity-input" type="number" value="2">
-                  <button class="btn btn-danger" type="button">REMOVE</button>
-                </div>
-              </div>
-            </div>
-            <div class="cart-total">
-              <strong class="cart-total-title">Total</strong>
-              <span class="cart-total-price"></span>
-            </div>
-            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
-          </section> -->
-    <!-- TESTING ANOTHER CART  -->
     <section class="container content-section">
       <h3 class="section-header">CART</h3>
       <div class="cart-row">
@@ -179,7 +117,8 @@
         <div id="errorPrompt"></div>
 
         <!-- Button trigger modal -->
-        <button type="button" id="purchase-btn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" id="purchase-btn" class="btn btn-primary" data-toggle="modal"
+          data-target="#exampleModalCenter">
           Purchase
         </button>
 
@@ -194,27 +133,20 @@
               <div class="modal-body">
                 <h5>☕️ Thank you for ordering at Lounge Café. Here is your order summary:
                 </h5>
-
-
                 </br>
-
-
-                  <table>
-                    <tr>
-                      <th scope="col"></th>
-                      <th scope="col"></th>
-                      <th scope="col"></th>
-                    </tr>
-                    <tbody id="modal-items">
-                      <td>
-
-                      </td>
-                      <td>
-
-                      </td>
-
-                    </tbody>
-                  </table>
+                <table>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                  <tbody id="modal-items">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                  </tbody>
+                </table>
 
                 <h5>
                   You'll also receive an SMS with this information. ☕️

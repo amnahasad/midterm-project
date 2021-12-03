@@ -16,7 +16,6 @@ module.exports = (db) => {
         WHERE availability = 'TRUE'
         AND food_type = 'food';`)
           .then(menuData => {
-            // console.log(menuData)
             const foods = menuData.rows;
             const templateVars = {
               drinks,
