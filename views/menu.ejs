@@ -1,0 +1,176 @@
+<%- include('partials/_nav') %>
+  <script src="/scripts/app.js"></script>
+  <script type="text/javascript" src="../routes/menu.js"></script>
+
+  <body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+
+    <header class="banner" id="banner">
+      <img src="https://i.pinimg.com/originals/22/05/a1/2205a138a839c5b6c60590855ee4a396.jpg">
+    </header>
+    <h2 id="menu">MENU</h2>
+    <div> </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Beverages</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const drink of drinks) { %>
+          <tr>
+            <div class="drink">
+              <td>
+                <%=drink.name %>
+              </td>
+              <td>
+                <%= drink.description %>
+              </td>
+              <td>
+                <%= drink.price %>
+              </td>
+              <td>
+                <button data-id="<%=drink.id%>" class="menuButton" id="drinks-button-<%=drink.id%>" type="submit">Add to
+                  Cart</button>
+              </td>
+            </div>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+    </br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const food of foods) { %>
+          <tr>
+            <div class="food">
+              <td>
+                <%=food.name %>
+              </td>
+              <td>
+                <%= food.description %>
+              </td>
+              <td>
+                <%= food.price %>
+              </td>
+              <td>
+                <button data-id="<%=food.id%>" class="menuButton" id="drinks-button-<%=food.id%>" type="submit">Add to
+                  Cart</button>
+              </td>
+            </div>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+    <section class="container content-section">
+      <h3 class="section-header">CART</h3>
+      <div class="cart-row">
+        <span class="cart-item cart-header cart-column">ITEM</span>
+        <span class="cart-price cart-header cart-column">PRICE</span>
+        <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+      </div>
+      <div class="cart-items">
+
+      </div>
+      <div class="cart-total">
+        <strong class="cart-total-title">Total</strong>
+        <output name="updated-total" id="total-price" class="cart-total-price" for="cart-row">0.00</output>
+      </div>
+      <h5>Customer's Information</h5>
+      <form>
+        <div class="row">
+          <div class="col">
+            <h6>First name</h6><input type="text" id="firstName" class="form-control" placeholder="Enter first name">
+          </div>
+          <div class="col">
+            <h6>Last name</h6><input type="text" id="lastName" class="form-control" placeholder="Enter last name">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <h6>Phone number</h6><input type="tel" class="form-control" placeholder="Enter phone number" id="phone"
+              name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+          </div>
+          <div class="col">
+            <h6>Comments</h6><input type="text" id="comments" class="form-control" placeholder="Add comments">
+          </div>
+        </div>
+        <!-- ERROR PROMPT CONTAINER  -->
+        <div id="errorPrompt"></div>
+
+        <!-- Button trigger modal -->
+        <button type="button" id="purchase-btn" class="btn btn-primary" data-toggle="modal"
+          data-target="#exampleModalCenter">
+          Purchase
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Order Summary</h5>
+              </div>
+              <div class="modal-body">
+                <h5>☕️ Thank you for ordering at Lounge Café. Here is your order summary:
+                </h5>
+                </br>
+                <table>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                  <tbody id="modal-items">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                  </tbody>
+                </table>
+
+                <h5>
+                  You'll also receive an SMS with this information. ☕️
+                </h5>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </body>
+
+  <footer id="footer">
+    <div class="container px-5">
+      <p class="m-0 text-center text-white small">Copyright © Lounge Café.</p>
+      <p class="m-0 text-center text-white small">P: 834-938-5555</p>
+      <p class="m-0 text-center text-white small">25 Lighthouse Ave</p>
+      <P class="m-0 text-center text-white small">Toronto, Ontario X6A 6G7</P>
+    </div>
+  </footer>
+  <script src="/scripts/add-to-cart.js"></script>
+
+  </html>

@@ -1,0 +1,43 @@
+<%- include('partials/_nav') %>
+  <body>
+    <header></header>
+    <h2>View Overview</h2>
+    <label class="viewOrder">
+      <div class="item">
+        <div class="order-quantity-price">
+          <div class="order-number">
+            <p>Order Number: <%=viewOrder.customer_order%></p>
+          </div>
+
+          <div class="quantity-price">
+            <p style="margin-right: 70%">Quantity</p>
+            <p>Price</p>
+          </div>
+        </div>
+      </div>
+      <div class="order-container">
+        <div class="order-name">
+          <p><%=viewOrder.name%></p>
+          <p><%=viewOrder.quantity%></p>
+          <p><%=viewOrder.total%></p>
+        </div>
+        <p>Comments: <%=viewOrder.comments%></p>
+        <table class="container"></table>
+      </div>
+      <div>
+        <p>Subtotal:</p>
+        <p>Tax:</p>
+        <p>Total:</p>
+      </div>
+    </label>
+    <br />
+  </body>
+  <footer id="footer" class="py-5 bg-black">
+    <div class="container px-5">
+      <p class="m-0 text-center text-white small">Copyright © Lounge Café.</p>
+      <p class="m-0 text-center text-white small">P: 834-938-5555</p>
+      <p class="m-0 text-center text-white small">25 Lighthouse Ave</p>
+      <P class="m-0 text-center text-white small">Toronto, Ontario X6A 6G7</P>
+    </div>
+  </footer>
+</html>

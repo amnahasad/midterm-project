@@ -6,12 +6,12 @@
  */
 
 const express = require('express');
-const router  = express.Router();
-// const bootstrap = require('bootstrap');
+const router = express.Router();
+
 
 module.exports = (db) => {
   router.get("/menu", (req, res) => {
-    db.query(`SELECT * FROM menu;`)
+    db.query(`SELECT * FROM customers;`)
       .then(data => {
         const users = data.rows;
         res.json({ users });

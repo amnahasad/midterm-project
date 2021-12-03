@@ -8,7 +8,7 @@ VALUES ('Alice', '6475649999'),
 
 
 INSERT INTO restaurants (name, phone, created_at)
-VALUES ('Restaurant Name', '8349385555', '2021-01-25 9:30:20');
+VALUES ('Garden Cafe', '8349385555', '2021-01-25 9:30:20');
 
 
 INSERT INTO menu_items (restaurant_id, name, description, availability, price, food_type)
