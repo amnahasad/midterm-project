@@ -183,8 +183,11 @@
             <h6>Comments</h6><input type="text" class="form-control" placeholder="Add comments">
           </div>
         </div>
+        <!-- ERROR PROMPT CONTAINER  -->
+        <div id="errorPrompt"></div>
+
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" id="purchase-btn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
           Purchase
         </button>
 
@@ -201,12 +204,15 @@
                   summary:
                   <table>
                     <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
                       <td>
                         Order ID here
                       </td>
                       <td> Order Summary here
                       </td>
-                    </tr>
                   </table>
 
 
