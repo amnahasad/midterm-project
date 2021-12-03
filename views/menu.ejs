@@ -167,10 +167,10 @@
       <form>
         <div class="row">
           <div class="col">
-            <h6>First name</h6><input type="text" class="form-control" placeholder="Enter first name">
+            <h6>First name</h6><input type="text" id="firstName" class="form-control" placeholder="Enter first name">
           </div>
           <div class="col">
-            <h6>Last name</h6><input type="text" class="form-control" placeholder="Enter last name">
+            <h6>Last name</h6><input type="text" id="lastName" class="form-control" placeholder="Enter last name">
           </div>
         </div>
         <br>
@@ -180,7 +180,7 @@
               name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
           </div>
           <div class="col">
-            <h6>Comments</h6><input type="text" class="form-control" placeholder="Add comments">
+            <h6>Comments</h6><input type="text" id="comments" class="form-control" placeholder="Add comments">
           </div>
         </div>
         <!-- ERROR PROMPT CONTAINER  -->
@@ -200,8 +200,12 @@
                 <h5 class="modal-title" id="exampleModalCenterTitle">Order Summary</h5>
               </div>
               <div class="modal-body">
-                <h5>☕️🍃 Thank you for ordering at Garden Café! Here is your order confirmation number and order
-                  summary:
+                <h5>☕️🍃 Thank you for ordering at Garden Café! Here is your order summary:
+                </h5>
+
+
+                </br>
+
 
                   <table>
                     <tr>
@@ -211,16 +215,16 @@
                     </tr>
                     <tbody id="modal-items">
                       <td>
-                        Order ID here
+
                       </td>
                       <td>
-                        Order Summary here
+
                       </td>
 
                     </tbody>
                   </table>
 
-
+                <h5>
                   You'll also receive an SMS with this information. ☕️🍃
                 </h5>
               </div>

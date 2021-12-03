@@ -27,13 +27,13 @@ $(document).on('click', '.btn-danger', function (event) {
   console.log("data-id ---> ", attribute);
   $(addToCartBttn).prop("disabled", false);
   updateTotal();
-  console.log('click on the document');
+  // console.log('click on the document');
 });
 
 $(document).on('input', '.cart-quantity-input', function (event) {
 
   updateTotal();
-  console.log('click on the document');
+  // console.log('click on the document');
 });
 
 

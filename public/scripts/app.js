@@ -14,14 +14,26 @@ const createItemElement = function (item) {
   `;
   return $item;
 };
+const createContactInfoElement = function (item) {
+  let $item =
+    `<div>
+  <br>
+    <span class="modal-firstName">${item.firstName}</span>
+    <span class="modal-lastName">${item.lastName}</span><br>
+    <span class="modal-phoneNumber">${item.phoneNumber}</span><br>
+    <span class="modal-comments">Comments: ${item.comments}</span>
+    </div>
+    <br>`
+  return $item;
+};
 
 const createSummaryElement = function (cartItems) {
   let items = ''
   for (const item of cartItems) {
 
     let itemEl = `<span class="modal-item-name">${item.name}</span>
-    <div class="modal-quantity">
-    <span class="modal-item-price">${item.quantity}</span>`
+    <span class="modal-item-price">\n${item.quantity}</span>
+    <div class="modal-quantity">`
 
     items += itemEl
     console.log(item)
@@ -72,7 +84,7 @@ $(document).ready(function () {
 
   // let newObj = {};
 
-  let custIn
+
 
 
 
@@ -95,15 +107,36 @@ $(document).ready(function () {
 
     })
     let totalPrice = { 'total': $('#total-price').text() }
-    console.log(cartItems)
+    // console.log(cartItems)
 
 
 
 
-    let htmlTotalPrice = `<span class="modal-item-total">${totalPrice['total']}</span>`
+    let htmlTotalPrice = `<span class="modal-item-total">Total: ${totalPrice['total']}</span>`
 
     // <span class="modal-item-total">${obj.total}</span>
-    $('#modal-items').prepend(createSummaryElement(cartItems), htmlTotalPrice);
+    let contactInfo = {
+      firstName: $('#firstName').val(),
+      lastName: $('#lastName').val(),
+      phoneNumber: $('#phone').val(),
+      comments: $('#comments').val()
+    }
+    $('#modal-items').prepend(createSummaryElement(cartItems), htmlTotalPrice, createContactInfoElement(contactInfo));
+
+
+
+    // console.log($('#lastName').val())
+    // console.log($('#firstName').val())
+    // console.log($('#phone').val());
+    // console.log($('#comments').val());
+
+
+
+
+    // $(form-control)
+
+
+
 
     // cartItems.forEach(obj => {
 
