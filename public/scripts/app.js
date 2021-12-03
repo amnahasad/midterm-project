@@ -15,17 +15,29 @@ const createItemElement = function (item) {
   return $item;
 };
 
-const createSummaryElement = function (item) {
-  let $item =
+const createSummaryElement = function (cartItems) {
+  let items = ''
+  for (const item of cartItems) {
+
+    let itemEl = `<span class="modal-item-name">${item.name}</span>
+    <div class="modal-quantity">
+    <span class="modal-item-price">${item.quantity}</span>`
+
+    items += itemEl
+    console.log(item)
+
+  }
+  let $obj =
     `
-    <div class="cart-row">
-      <span class="cart-item cart-header cart-column">${item.name}</span>
-      <span class="cart-price cart-header cart-column">${item.price}</span>
-      <div class="cart-quantity cart-column">
+    <div class="order-summary-modal">
+      ${items}
+
       </div>
-    </div>
+      </div>
   `;
-  return $item;
+
+
+  return $obj;
 };
 
 $(document).ready(function () {
@@ -56,7 +68,14 @@ $(document).ready(function () {
 
   let $addToModal = $('#purchase-btn');
 
-  let cartItems = []
+  let cartItems = [];
+
+  // let newObj = {};
+
+  let custIn
+
+
+
 
   $addToModal.on('click', function (e) {
     cartItems = []
@@ -67,18 +86,42 @@ $(document).ready(function () {
 
       let cartQTY = $(el).find('.cart-quantity').children('input').val()
 
-      let obj = {}
-      obj[cartName] = cartQTY
+      let obj = {};
+      obj['name'] = cartName
+      obj['quantity'] = cartQTY
       cartItems.push(obj)
 
-      // console.log(cartItemQTY)
-      // cartItemPrices = $(el).find('.cart-price').text()
+
 
     })
     let totalPrice = { 'total': $('#total-price').text() }
-
-    cartItems.push(totalPrice)
     console.log(cartItems)
+
+
+
+
+    let htmlTotalPrice = `<span class="modal-item-total">${totalPrice['total']}</span>`
+
+    // <span class="modal-item-total">${obj.total}</span>
+    $('#modal-items').prepend(createSummaryElement(cartItems), htmlTotalPrice);
+
+    // cartItems.forEach(obj => {
+
+
+    // if (cartItems[-1]) {
+    //   console.log('CART ITEMS->', obj['total'])
+    // }
+
+
+
+    // console.log('CART ITEMS->', obj['name'])
+    // console.log('CART ITEMS->', obj['quantity'])
+
+    // Object.keys(obj)
+
+
+    // })
+
     // console.log(purchaseButton)
 
 
@@ -91,9 +134,18 @@ $(document).ready(function () {
     // $(this).prop("disabled", true);
     // $('.cart-items').prepend(createItemElement(item));
 
+    // cartItems.forEach(obj => {
+
+    //   newObj = {
+    //     name: Object.values(obj)
+    //   }
+    //   console.log('newObj Object -->', newObj)
+    // })
+    // return newObj
   })
 
 
+  // console.log(cartItems)
 
 
   /*
@@ -119,18 +171,7 @@ $(document).ready(function () {
 
   */
 
-  // if (!tweet) {
-  //   $('#errorPrompt').text("Tweet cannot be empty! Don't be shy, we don't bite :) ");
-  //   $('#errorPrompt').slideDown("slow");
-  //   $('#errorPrompt').delay(3500).slideUp("slow");
-  //   return;
-  // }
-  // if (tweet > 140) {
-  //   $('#errorPrompt').text("Tweet can't be longer than 140 characters!");
-  //   $('#errorPrompt').slideDown("slow");
-  //   $('#errorPrompt').delay(5000).slideUp("slow");
-  //   return;
-  // }
+
 
   // $('#myModal').on('shown.bs.modal', function () {
 
